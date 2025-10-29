@@ -31,10 +31,6 @@ class App extends Component {
 	   }
 	}
 
-
-
-
-	
     renderBallOrButton() {
 		if (this.state.renderBall) {
 		    return <div className="ball" style={this.state.ballPosition}></div>
@@ -47,6 +43,11 @@ class App extends Component {
     componentDidMount() {
       document.addEventListener("keyDown",this.handleKeyDown)
     }
+
+ componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyDown);
+  }
+
 
     render() {
         return (
